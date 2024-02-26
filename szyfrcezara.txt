@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string Cezar(int klucz, string tekst)
+{
+	char szyfr;
+	int dl = tekst.length();
+	string jd = "";
+	for(int i = 0; i<dl; i++)
+	{
+		if (tekst[i] == ' ') szyfr = ' ';
+		else
+		{
+			szyfr = tekst[i] + klucz;
+			if (szyfr>'Z') szyfr = szyfr - 26;
+		}
+		jd = jd + szyfr;
+	}
+	return jd;
+}
+
+int main()
+{
+	string ok;
+	int klucz;
+
+	cout << "Podaj tekst: ";
+	getline(cin,ok);
+
+	cout << "Podaj klucz: ";
+	cin >> klucz;
+
+	cout << "Zaszyfrowana wiadomość: " << Cezar(klucz,ok) << endl;
+
+	return 0;
+}
